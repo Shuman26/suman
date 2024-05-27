@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suman's Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        main {
+            flex: 1;
+            padding: 100px 20px 20px 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .bio, .contact-info, .contact-form, .address-info {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+                <li><a href="#address" onclick="showPage('address')">Address</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="home">
+            <h1>Welcome to Suman's Blog</h1>
+            <div class="bio">
+                <p>Hello! My name is Suman Pokhrel. I am originally from Nepal and currently studying in Denmark since December 27, 2017. I am pursuing a Bachelor's degree in Business. This blog is a space where I share my experiences, thoughts, and insights about my studies, life in Denmark, and various topics related to business and personal growth. I hope you find the content informative and engaging. Feel free to reach out to me through the contact page.</p>
+            </div>
+        </div>
+        <div id="contact" class="hidden">
+            <h1>Contact Suman</h1>
+            <div class="contact-info">
+                <p>If you would like to get in touch with me, you can reach me at:</p>
+                <p>Email: <a href="mailto:sumanjunior100@gmail.com">sumanjunior100@gmail.com</a></p>
+                <p>Phone: +45 9168 9708</p>
+                <p>Follow me on social media:</p>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="contact-form">
+                <h2>Send me a message</h2>
+                <form action="mailto:sumanjunior100@gmail.com" method="post" enctype="text/plain">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+        <div id="address" class="hidden">
+            <h1>Our Address</h1>
+            <div class="address-info">
+                <p>You can visit us at:</p>
+                <p>123 Business Street,</p>
+                <p>Copenhagen, Denmark</p>
+                <p>We are open from Monday to Friday, 9 AM to 5 PM. Feel free to drop by during our office hours to discuss anything related to business studies or if you just want to say hello. We look forward to meeting you!</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Suman Pokhrel</p>
+    </footer>
+
+    <script>
+        function showPage(page) {
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('contact').classList.add('hidden');
+            document.getElementById('address').classList.add('hidden');
+            document.getElementById(page).classList.remove('hidden');
+        }
+
+        // Show home page by default
+        showPage('home');
+    </script>
+</body>
+</html>
